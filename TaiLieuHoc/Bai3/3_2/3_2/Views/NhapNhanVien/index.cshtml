@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form>
+            <table border="1" width="400px" height="250px">
+                <tr>
+                    <td>
+                        <label>Mã nhân viên:</label>
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Họ tên:</label>
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Ngày sinh:</label>
+                    </td>
+                    <td>
+                        <input type="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Giới tính:</label>
+                    </td>
+                    <td>
+                        <input id="nam" type="radio" value="Nam" name="gender" />
+                        <label for="nam">Nam</label>
+                        <input id="nu" type="radio" value="Nữ" name="gender" />
+                        <label for="nu">Nữ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Chức vụ:</label>
+                    </td>
+                    <td>
+                        <select name="chucvu">
+                            <option value="Trưởng phòng">Trưởng phòng</option>
+                            <option value="Phó phòng">Phó phòng</option>
+                            <option value="Nhân viên">Nhân viên</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Ngoại ngữ:</label>
+                    </td>
+                    <td>
+                        <input id="anh" type="checkbox" value="Anh" name="ngoaingu" />
+                        <label for="anh">Anh</label>
+
+                        <input id="phap" type="checkbox" value="Pháp" name="ngoaingu" />
+                        <label for="phap">Pháp</label>
+
+                        <input id="nga" type="checkbox" value="Nga" name="ngoaingu" />
+                        <label for="nga">Nga</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button>Lưu</button>
+                        <button>Xóa</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
