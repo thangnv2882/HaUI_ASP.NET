@@ -3,30 +3,37 @@
     ViewBag.Title = "Index";
 }
 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
 <div class="container">
 
-    <form action="" method="post">
+    <form action="/Calculator/XuLy" method="post">
         <asp:Label runat="server" Text="Nhập a:" for="soA">Nhập a</asp:Label>
-        <input name="soA" />
+        <input type="text" name="a" />
 
         <br />
 
         <asp:Label runat="server" Text="Nhập b:" for="soB">Nhập b</asp:Label>
-        <input name="soB" />
-        <br/>
+        <input type="text" name="b" />
+        <br />
 
         <asp:RadioButtonList runat="server">
-            <input id="cong" type="radio" name="cal" /> Cộng
-            <input id="tru" type="radio" name="cal" /> Trừ
-            <input id="nhan" type="radio" name="cal" /> Nhân
-            <input id="chia" type="radio" name="cal" /> Chia
+            <input value="+" type="radio" name="op" /> Cộng
+            <input value="-" type="radio" name="op" /> Trừ
+            <input value="*" type="radio" name="op" /> Nhân
+            <input value="/" type="radio" name="op" /> Chia
         </asp:RadioButtonList>
 
         <br />
 
-        <input type="submit" value="Calculate" formaction="/Calculator/Calculate"/>
+        <input type="submit" value="Calculate" />
 
         <p>@ViewBag.kq</p>
     </form>
-    
+
 </div>

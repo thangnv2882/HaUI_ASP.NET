@@ -3,26 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebGrease.Activities;
 
 namespace _4_1.Controllers
 {
     public class CalculatorController : Controller
     {
-        // GET: Caculator
+        // GET: Calculator
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Calculate()
+        [HttpPost]
+        public ActionResult XuLy(double a, double b, string op = "+")
         {
-            double a = double.Parse(Request["soA"]);
-            double b = double.Parse(Request["soB"]);
 
-            System.Diagnostics.Debug.WriteLine(a);
-
-            ViewBag.kq = a;
+            switch (op)
+            {
+                case "+":
+                    ViewBag.kq = a + b;
+                    break;
+                case "-":
+                    ViewBag.kq = a - b;
+                    break;
+                case "*":
+                    ViewBag.kq = a * b;
+                    break;
+                case "/":
+                    if (b == 0)
+                        ViewBag.kq = "Khong chia duoc cho 0.";
+                    else
+                        ViewBag.kq = a / b;
+                    break;
+            }
 
             return View("Index");
         }
