@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>STAFF INFOMATION</h2>
+<form action="/staff/Save" enctype="multipart/form-data" method="post">
+    <div>Staff Id</div>
+    <input type="text" name="txtID" value="@ViewBag.id" />
+    <div>Staff Name</div>
+    <input type="text" name="txtName" value="@ViewBag.name" />
+    <div>Date Of Birth</div>
+    <input type="date" name="txtDate" value="@ViewBag.birthday" />
+    <div>Salary</div>
+    <input type="text" name="txtSalary" value="@ViewBag.salary" />
+
+    <div>Image</div>
+    <div>
+        <input id="fileupload" name="myfileImage" class="fileupload1" type="file" />
+        <b>Live Preview</b>
+        <img src="@ViewBag.image" id="dvPreview1" />
+    </div>
+
+    <input type="submit" value="Save" />
+    <input type="button" value="Open" onclick="location.href = '@Url.Action("Open", "Staff")'"/>
+
+</form>

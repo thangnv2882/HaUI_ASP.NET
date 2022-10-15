@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form action="/TinhTienDien/XuLy" method="post">
+
+    <table border="1" width="400px" height="250px">
+        <tr>
+            <th colspan="3" align="center">
+                <label>Tính Tiền điẹn</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <label>Họ tên chủ hộ:</label>
+            </td>
+            <td>
+                <input type="text" name="hoTen" />
+            </td>
+            <td>
+                <input type="checkbox" id="check" name="checkUuTien"/>
+                <label for="check">Hộ ưu tiên</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Loại điện tiêu thụ:</label>
+            </td>
+            <td colspan="2">
+                <select name="loai">
+                    <option value="Sinh hoạt">Sinh hoạt</option>
+                    <option value="Kinh doanh">Kinh doanh</option>
+                    <option value="Sản xuất">Sản xuất</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Vào chỉ số cũ:</label>
+            </td>
+            <td colspan="2">
+                <input name="chiSoCu"/> KW
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Vào chỉ số mới:</label>
+            </td>
+            <td colspan="2">
+                <input name="chiSoMoi" /> KW
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3" align="center">
+                <input type="submit" value="Tính" />
+            </th>
+        </tr>
+    </table>
+
+</form>
