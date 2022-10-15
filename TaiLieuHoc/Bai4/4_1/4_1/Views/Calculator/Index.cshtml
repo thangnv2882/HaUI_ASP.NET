@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <form action="" method="post">
+        <asp:Label runat="server" Text="Nhập a:" for="soA">Nhập a</asp:Label>
+        <input name="soA" />
+
+        <br />
+
+        <asp:Label runat="server" Text="Nhập b:" for="soB">Nhập b</asp:Label>
+        <input name="soB" />
+        <br/>
+
+        <asp:RadioButtonList runat="server">
+            <input id="cong" type="radio" name="cal" /> Cộng
+            <input id="tru" type="radio" name="cal" /> Trừ
+            <input id="nhan" type="radio" name="cal" /> Nhân
+            <input id="chia" type="radio" name="cal" /> Chia
+        </asp:RadioButtonList>
+
+        <br />
+
+        <input type="submit" value="Calculate" formaction="/Calculator/Calculate"/>
+
+        <p>@ViewBag.kq</p>
+    </form>
+    
+</div>
