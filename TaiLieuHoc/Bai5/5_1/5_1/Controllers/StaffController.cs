@@ -48,7 +48,7 @@ namespace _5_1.Controllers
             ViewBag.name = s.StaffName;
             ViewBag.birthday = s.BirthOfDate.ToString("yyyy-MM-dd");
             ViewBag.salary = s.Salary;
-            ViewBag.image = "../../Images" + s.StaffImage;
+            ViewBag.image = "../Images/" + s.StaffImage;
             return View("Index");
         }
     }

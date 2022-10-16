@@ -1,0 +1,38 @@
+﻿
+@model Bai5._3.Models.MailInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Send mail with Attachment</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.From, "From") <br />
+        @Html.EditorFor(m => m.From)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.To, "To")<br />
+        @Html.EditorFor(m => m.To)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Subject, "Subject")<br />
+        @Html.EditorFor(m => m.Subject)
+    </div>
+
+    <div>Attachment</div>
+    <div>
+        <input id="fileupload" name="myAttachment" class="fileupload1" type="file" />
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Note, "Note")<br />
+        @Html.TextAreaFor(m => m.Note, new { @rows = "5", @cols = "50" })
+    </div>
+    <input type="submit" value="Send" />
+}
+
+
+
+
