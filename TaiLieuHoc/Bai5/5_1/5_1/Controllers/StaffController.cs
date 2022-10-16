@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace _5_1.Controllers
 {
-    public class NhapNhanVienController : Controller
+    public class StaffController : Controller
     {
         // GET: NhapNhanVien
         public ActionResult Index()

@@ -2,9 +2,15 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    #dvPreview1 {
+        height: 100px;
+        width: 100px;
+    }
+</style>
 
 <h2>STAFF INFOMATION</h2>
-<form action="/staff/Save" enctype="multipart/form-data" method="post">
+<form action="/Staff/Save" enctype="multipart/form-data" method="post">
     <div>Staff Id</div>
     <input type="text" name="txtID" value="@ViewBag.id" />
     <div>Staff Name</div>
@@ -17,7 +23,7 @@
     <div>Image</div>
     <div>
         <input id="fileupload" name="myfileImage" class="fileupload1" type="file" />
-        <b>Live Preview</b>
+        <b>Live Preview</b> <br />
         <img src="@ViewBag.image" id="dvPreview1" />
     </div>
 
