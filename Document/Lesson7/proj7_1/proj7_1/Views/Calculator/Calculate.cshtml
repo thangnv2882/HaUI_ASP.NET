@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+
+@{
+    string result = "";
+    double a=0, b=0;
+
+    if (Request["sothu1"] != null && (Request["sothu2"] != null) )
+    {
+        a = Double.Parse(Request["sothu1"]);
+        b = Double.Parse(Request["sothu2"]);
+        var op = Request["op"];
+        switch (op)
+        {
+            case "+":
+                {
+                    result = (a + b).ToString();
+                    break;
+                }
+            case "-":
+                {
+                    result = (a - b).ToString();
+                    break;
+                }
+            case "*":
+                {
+                    result = (a * b).ToString();
+                    break;
+                }
+            case "/":
+                {
+                    if (b != 0)
+                    {
+                        result = (a / b).ToString();
+                    }
+                    else
+                    {
+                        result = "Khong duoc chia cho 0";
+                    }
+                    break;
+                }
+            default:
+                {
+                    result = "Phep toan khong hop le";
+                    break;
+                }
+        }
+    }
+
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.Label("Nhap so thu 1")
+        @Html.TextBox("sothu1", @a)
+    </p>
+    <p>
+        @Html.Label("Nhap so thu 2")
+        @Html.TextBox("sothu2", @b)
+    </p>
+    <p>
+        @Html.Label("Ket qua: ")
+        @Html.TextBox("result", @result)
+    </p>
+
+    <input type="submit" value="+" name="op" />
+    <input type="submit" value="-" name="op" />
+    <input type="submit" value="*" name="op" />
+    <input type="submit" value="/" name="op" />
+}
