@@ -1,0 +1,31 @@
+﻿@{
+    string URL = String.Concat(Request.Url.Scheme, "://", Request.Url.Host, ":", Request.Url.Port);
+}
+
+<style>
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<ul>
+
+    <li>
+        <a href="@URL/Home/GioiThieu" class="Menu">
+            Giới Thiệu
+        </a>
+    </li>
+    <li>
+        <a href="@URL/Home/TuyenSinh" class="Menu">
+            Tuyển Sinh
+        </a>
+    </li>
+    <li>
+        <a href="@URL/Home/DaoTao" class="Menu">
+            Đào Tạo
+        </a>
+    </li>
+</ul>

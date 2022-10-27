@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ 
+    var date = DateTime.Now;
+    var hour = DateTime.Now.Hour;
+    var minute = DateTime.Now.Minute;
+    var second = DateTime.Now.Second;
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Today is: </td>
+            <td>@date</td>
+        </tr>
+        <tr>
+            <td>Hour:</td>
+            <td>@hour</td>
+        </tr>
+        <tr>
+            <td>Minute:</td>
+            <td>@minute</td>
+        </tr>
+        <tr>
+            <td>Second:</td>
+            <td>@second</td>
+        </tr>
+
+    </table>
+</div>
