@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Cau1";
+    var luongThang = "";
+    var maGV = "";
+    var hoTen = "";
+    var khoa = "";
+    var luongGio = "";
+    var soGio = "";
+    if(IsPost)
+    {
+        soGio = Request["soGio"];
+        luongGio = Request["luongGio"];
+        maGV = Request["maGV"];
+        hoTen = Request["hoTen"];
+        khoa = Request["khoa"];
+
+        if(soGio.AsInt() >= 120)
+        {
+            luongThang = (luongGio.AsFloat() * soGio.AsInt() * 1.1).ToString();
+        }else
+        {
+            luongThang = (luongGio.AsFloat() * soGio.AsInt()).ToString();
+
+        }
+    }
+}
+
+<h2>Cau1</h2>
+
+<link rel="stylesheet" type="text/css" href="~"
+@*<style>
+    td {
+        padding: 8px;
+    }
+</style>*@
+
+<form action="" method="post">
+
+    <table border="1">
+        <tr>
+            <td><label>Mã giảng viên</label></td>
+            <td><input type="text" name="maGV" value="@maGV" /> </td>
+        </tr>
+        <tr>
+            <td><label>Họ tên</label></td>
+            <td><input type="text" name="hoTen" value="@hoTen" /></td>
+        </tr>
+        <tr>
+            <td><label>Khoa</label></td>
+            <td>
+                <select name="khoa">
+                    <option hidden>@khoa</option>
+                    <option>Cơ khí</option>
+                    <option>Kinh tế</option>
+                    <option>Công nghệ thông tin</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Lương giờ</label></td>
+            <td><input type="text" name="luongGio" value="@luongGio" /></td>
+        </tr>
+        <tr>
+            <td><label>Số giờ</label></td>
+            <td><input type="text" name="soGio" value="@soGio" /></td>
+        </tr>
+        <tr>
+            <td><label>Lương tháng</label></td>
+            <td><input type="text" value="@luongThang" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Tính" /></td>
+        </tr>
+
+    </table>
+</form>
+

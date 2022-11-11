@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "KetQua";
+}
+
+<h2>KetQua</h2>
+
+<link rel="stylesheet" type="text/css" href="~/wwwroot/Cau2.css" />
+
+<style>
+    td, td {    
+        padding: 5px;
+    }
+</style>
+
+<table border="1">
+    <tr>
+        <th>@Html.Label("Mã hàng")</th>
+        <th>@Html.Label("Tên hàng")</th>
+        <th>@Html.Label("Thành tiền")</th>
+
+    </tr>
+    <tr>
+        <th class="kq">@ViewBag.maHang</th>
+        <th class="kq">@ViewBag.tenHang</th>
+        <th class="kq">@ViewBag.thanhTien</th>
+    </tr>
+</table>

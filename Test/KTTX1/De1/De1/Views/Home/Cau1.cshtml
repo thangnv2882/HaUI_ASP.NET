@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Cau1";
+    double thanhTien = 0;
+
+    var thanhtien = "";
+    var soluong = 0;
+    var dongia = 0f;
+    if (IsPost)
+    {
+        soluong = Request["SoLuong"].AsInt();
+        dongia = Request["DonGia"].AsFloat();
+        if (soluong >= 100)
+        {
+            thanhtien = (soluong * dongia * 0.9f).ToString();
+        }
+        else
+        {
+            thanhtien = (soluong * dongia).ToString();
+        }
+    }
+
+}
+
+<h2>Cau1</h2>
+
+<style>
+    td {
+        padding: 5px;
+    }
+</style>
+
+<div>
+    <form action="" method="post">
+        <table border="1">
+            <tr>
+                <td>Mã hàng:</td>
+                <td>
+                    <input type="text" name="MaHang" />
+                </td>
+            </tr>
+            <tr>
+                <td>Tên hàng:</td>
+                <td>
+                    <input type="text" name="TenHang" />
+                </td>
+            </tr>
+            <tr>
+                <td>Loại hàng:</td>
+                <td>
+                    <select>
+                        <option>Quần áo</option>
+                        <option>Điện tử</option>
+                        <option>Gia dụng</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Đơn giá:</td>
+                <td>
+                    <input type="number" name="DonGia" />
+                </td>
+            </tr>
+            <tr>
+                <td>Số lượng:</td>
+                <td>
+                    <input type="number" name="SoLuong" />
+                </td>
+            </tr>
+            <tr>
+                <td>Thành tiền:</td>
+                <td>
+                    <input type="text" name="ThanhTien" value="@thanhtien" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center; margin: auto;">
+                    <input type="submit" value="Tính">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>

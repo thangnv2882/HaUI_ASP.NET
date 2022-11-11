@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Cau1";
+    var thuNhap = "";
+    var luongNgay = 0f;
+    var soNgay = 0;
+
+    if(IsPost)
+    {
+        luongNgay = Request["luongNgay"].AsFloat();
+        soNgay = Request["soNgay"].AsInt();
+        if(soNgay >= 25)
+        {
+            thuNhap = (luongNgay * soNgay + 500000).ToString();
+        } else
+        {
+            thuNhap = (luongNgay * soNgay).ToString();
+
+        }
+
+    }
+}
+
+<h2>Cau1</h2>
+
+<style>
+    td {
+        padding: 8px;
+    }
+</style>
+
+<div>
+
+    <form action="" method="post">
+        <table border="1">
+
+            <tr>
+                <td><label>Mã nhân viên</label></td>
+                <td><input type="text" name="maNV" /></td>
+            </tr>
+            <tr>
+                <td><label>Họ tên</label></td>
+                <td><input type="text" name="hoTen" /></td>
+            </tr>
+            <tr>
+                <td><label>Đơn vị</label></td>
+                <td>
+                    <select name="donVi">
+                        <option>Phòng tổ chức</option>
+                        <option>Phòng kinh doanh</option>
+                        <option>Phòng kỹ thuật</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>lương ngày</label></td>
+                <td><input type="text" name="luongNgay" /></td>
+            </tr>
+            <tr>
+                <td><label>Số ngày</label></td>
+                <td><input type="text" name="soNgay" /></td>
+            </tr>
+            <tr>
+                <td><label>Thu nhap</label></td>
+                <td><input type="text" name="thuNhap" value="@thuNhap" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Tính" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+
+</div>
+

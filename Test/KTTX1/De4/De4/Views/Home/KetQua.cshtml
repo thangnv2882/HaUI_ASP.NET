@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "KetQua";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~wwwroot/Cau2.css" />
+
+<h2>KetQua</h2>
+
+<table border="1">
+    <tr>
+        <th>Mã giảng viên</th>
+        <th>Họ tên</th>
+        <th>Lương tháng</th>
+    </tr>   
+    <tr>
+       <td class="kq">@Model.maGV</td> 
+       <td class="kq">@Model.hoTen</td> 
+       <td class="kq">@Model.luongThang</td> 
+    </tr>
+</table>
+
