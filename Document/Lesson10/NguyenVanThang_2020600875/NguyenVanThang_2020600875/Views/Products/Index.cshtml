@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<NguyenVanThang_2020600875.Models.Product>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách hàng</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm kiếm theo tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { required = "required" })
+        <input type="submit" value="Tìm" class="btn btn-primary"/>
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @ViewBag.Require
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            @Html.ActionLink("Tên hàng", "Index", new { sortOrder = ViewBag.SapTheoTen, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Giá", "Index", new { sortOrder = ViewBag.SapTheoGia, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Danh mục", "Index", new { sortOrder = ViewBag.SapTheoDM })
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catalogy.CatalogyID)
+            </td>
+            <td>
+                @{
+                    // Lay duong dan file anh
+                    string ImagePath = "../../wwwroot/WineStoreImages/" + item.Image;
+                }
+                <img src="@Url.Content(ImagePath)" width="100" class="img-thumbnail" />
+                <br />
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("", new { page })) 
