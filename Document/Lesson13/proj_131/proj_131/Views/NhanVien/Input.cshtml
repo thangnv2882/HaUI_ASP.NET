@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Input";
+}
+
+<h2>Input</h2>
+
+@using (Html.BeginForm("Process", "NhanVien"))
+{
+    <table class="table-bordered" width="400">
+        <tr>
+            <td>
+                @Html.Label("Ma nhan vien")
+            </td>
+            <td>
+                @Html.TextBox("maNV")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Ten nhan vien")
+            </td>
+            <td>
+                @Html.TextBox("hoTen")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("So ngay cong")
+            </td>
+            <td>
+                @Html.TextBox("soNgayCong")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Tien mot ngay cong")
+            </td>
+            <td>
+                @Html.TextBox("motNgayCong")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Nhap" />
+            </td>
+        </tr>
+
+    </table>
+
+}
