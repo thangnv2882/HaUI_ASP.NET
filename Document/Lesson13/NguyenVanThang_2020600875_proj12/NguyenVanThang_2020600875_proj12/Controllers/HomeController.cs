@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NguyenVanThang_2020600875_proj12.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -40,5 +41,55 @@ namespace NguyenVanThang_2020600875_proj12.Controllers
 
             return View();
         }
+
+        //public ActionResult ShowUsers()
+        //{
+        //    List<User> users = (List<User>)Session["users"];
+        //    return View(users);
+        //}
+
+        public ActionResult Login()
+        {
+            List<User> accounts = (List<User>)Session["accounts"];
+            String username = Request["username"];
+            String password = Request["password"];
+            Boolean isLogin = false;
+            if (accounts == null)
+            {
+                accounts = new List<User>();
+            }
+            accounts.ForEach(item =>
+            {
+                if (item.username.Equals(username) && item.password.Equals(password))
+                {
+                    isLogin = true;
+                }
+            });
+            Session["error"] = "Login";
+            if (isLogin)
+            {
+                return RedirectToAction("Index", "TinhBinhPhuong");
+            }
+            Session["error"] = "Login Error";
+            return RedirectToAction("Input");
+
+        }
+
+        public ActionResult Input()
+        {
+            List<User> ds = new List<User>();
+            ds.Add(new User("user1", "1", "A", "a@gmail.com"));
+            ds.Add(new User("user2", "2", "B", "b@gmail.com"));
+            ds.Add(new User("user3", "3", "C", "c@gmail.com"));
+            ds.Add(new User("user4", "4", "D", "d@gmail.com"));
+            HttpCookie account = new HttpCookie("account");
+            HttpContext.Response.Cookies.Remove("account");
+            account.Value = ds.ToString();
+            HttpContext.Response.SetCookie(account);
+            Session["accounts"] = ds;
+            return View();
+        }
+
+
     }
 }

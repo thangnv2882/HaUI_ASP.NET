@@ -1,0 +1,28 @@
+﻿@*@model IEnumerable<NguyenVanThang_2020600875_proj12.Models.User>
+@{
+    ViewBag.Title = "ShowUsers";
+}
+
+<h2>List User</h2>
+@{
+    List<NguyenVanThang_2020600875_proj12.Models.User> users = (List<NguyenVanThang_2020600875_proj12.Models.User>)Session["users"];
+}
+
+
+<table width="500px">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.username</td>
+            <td>@item.password</td>
+            <td>@item.name</td>
+            <td>@item.email</td>
+        </tr>
+    }
+</table>*@

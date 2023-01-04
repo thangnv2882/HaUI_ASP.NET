@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Caculate</h2>
+
+<h4>Number 1: <input id="num1" type="text" /></h4>
+<h4>Number 2: <input id="num2" type="text" /></h4>
+
+<input type="button" id="b1" value="Add" />
+
+<div id="rs" style="font-size: large"></div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#b1").click(function() {
+            var n1 = $("#num1").val();
+            var n2 = $("#num2").val();
+            $.ajax({
+                url: '@Url.Action("Math", "Demo")?n1=' + n1 + '&n2=' + n2,
+                success: function (data) {
+                    if (data.status == "ok") {
+                        $("#rs").html(data.result); 
+                    }
+                }
+                })
+        })
+    })
+</script>
